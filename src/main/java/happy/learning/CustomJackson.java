@@ -5,6 +5,10 @@ import lombok.SneakyThrows;
 
 import java.lang.reflect.Field;
 
+/**
+ * convert row json to User object without any framework help
+ * do it on your own
+ */
 public class CustomJackson {
     public static void main(String[] args) {
         var json = "{\n" +
@@ -16,35 +20,8 @@ public class CustomJackson {
         var user = jsonToObject(json, User.class);
     }
 
-    @SneakyThrows
     private static <T> T jsonToObject(String json, Class<T> userClass) {
-
-        T user = userClass.getDeclaredConstructor().newInstance();
-        Field[] declaredFields = userClass.getDeclaredFields();
-
-        String result = json.replace("\n",
-                        "")
-                .replace("\"", "")
-                .replace("{", "")
-                .replace("};", "")
-                .trim();
-
-        String[] array = result.split(",");
-
-        String name;
-
-        for (Field declaredField : declaredFields) {
-            name = declaredField.getName();
-            for (String row : array) {
-                if (row.contains(name)) {
-                    int colonPosition = row.indexOf(":");
-                    String value = row.substring(colonPosition + 2);
-                    declaredField.setAccessible(true);
-                    declaredField.set(user, value);
-                }
-            }
-        }
-        return user;
+        return null;
     }
 
     @Data
