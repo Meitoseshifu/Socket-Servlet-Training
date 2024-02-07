@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 public class EveningServletHttpClient {
     @SneakyThrows
     public static void main(String[] args) {
-        URI toEveningEndpoint = URI.create("http://localhost:8080/evening?name=HttpClient");
+        URI toEveningEndpoint = URI.create("http://192.168.0.189z:8080/evening?name=HttpClient");
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(toEveningEndpoint).build();
         HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());

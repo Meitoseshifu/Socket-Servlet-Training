@@ -12,12 +12,12 @@ import java.net.Socket;
 public class EveningServletSocketClient {
     @SneakyThrows
     public static void main(String[] args) {
-        try (Socket socket = new Socket("localhost", 8080)) {
+        try (Socket socket = new Socket("192.168.0.189", 8080)) {
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            //printWriter.println("GET /evening?name=Socket HTTP/1.1");
-            printWriter.println("GET /evening HTTP/1.1");
+            printWriter.println("GET /evening?name=Socket HTTP/1.1");
+            //printWriter.println("GET /evening HTTP/1.1");
             printWriter.println("Host: 192.168.0.189");
-            printWriter.println("Cookie: JSESSIONID=EFBA04A72C1753BE0999B5FCA20D0267");
+            //printWriter.println("Cookie: JSESSIONID=EFBA04A72C1753BE0999B5FCA20D0267");
             printWriter.println();
             printWriter.flush();
             InputStream inputStream = socket.getInputStream();

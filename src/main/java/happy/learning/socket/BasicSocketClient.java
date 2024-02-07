@@ -3,6 +3,9 @@ package happy.learning.socket;
 import lombok.SneakyThrows;
 
 import java.io.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.Socket;
 
 public class BasicSocketClient {
@@ -10,11 +13,21 @@ public class BasicSocketClient {
 
     @SneakyThrows
     public static void main(String[] args) {
-        /*try (var socket = new Socket(HOST, 8899)) {
+        /*try (var socket = new Socket("93.175.203.215", 18080)) {
             var writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            var message = "Hello from Chortkiv \n";
+            var message = "Andriy Paliychuk \n";
             writer.write(message);
             writer.flush();
+        }*/
+
+        /*try (var socket = new DatagramSocket(8989)) {
+            var message = "ne robe :(";
+            var packet = new DatagramPacket(
+                    message.getBytes(),
+                    message.length(),
+                    InetAddress.getByName("93.175.203.215"),
+                    18080);
+            socket.send(packet);
         }*/
 
         try (InputStreamReader consoleInputStream = new InputStreamReader(System.in);

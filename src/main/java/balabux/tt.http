@@ -1,0 +1,9 @@
+POST http://93.175.203.215:8080/users/signin
+Content-Type: application/json
+
+{
+  "firstName": "Dart",
+  "lastName": "Vader"
+}
+
+###

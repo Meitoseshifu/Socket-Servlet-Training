@@ -14,6 +14,7 @@ public class CustomJackson {
                 "};";
 
         var user = jsonToObject(json, User.class);
+        System.out.println(user);
     }
 
     @SneakyThrows
